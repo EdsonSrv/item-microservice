@@ -4,6 +4,8 @@ import com.microservice.item.model.Item
 import org.springframework.stereotype.Service
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.client.RestTemplate
+import com.microservice.item.model.Product
+import java.util.Arrays
 
 @Service
 class ItemService {
@@ -12,7 +14,8 @@ class ItemService {
   RestTemplate clientRest
 
   List<Item> findAll(){
-    null
+    List<Product> products = Arrays.asList(clientRest.getForObject("http://localhost:8001/list", Product[].class))
+    null //Exercise: mapper products to item in groovy
   }
 
   Item findById(Long id, Integer amount){

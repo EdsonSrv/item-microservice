@@ -4,7 +4,7 @@ class Item {
   Product product
   Integer amount
 
-  Double getTotal()(){
+  Double getTotal(){
     product.price * amount
   }
 }
