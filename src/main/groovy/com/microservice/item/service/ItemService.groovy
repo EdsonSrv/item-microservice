@@ -15,7 +15,7 @@ class ItemService {
 
   List<Item> findAll(){
     List<Product> products = Arrays.asList(clientRest.getForObject("http://localhost:8001/list", Product[].class))
-    null //Exercise: mapper products to item in groovy
+    products.collect{ p -> new Item(product: p, amount: 1) }
   }
 
   Item findById(Long id, Integer amount){
