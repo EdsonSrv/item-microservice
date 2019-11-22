@@ -19,6 +19,9 @@ class ItemService {
   }
 
   Item findById(Long id, Integer amount){
+    def pathVariables = [:]
+    pathVariables.put("id", id.toString())
+    Product product = clientRest.getForObject("http://localhost:8001/detail/{id}", Product.class, pathVariables)
     null
   }
 
